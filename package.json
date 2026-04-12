@@ -1,0 +1,30 @@
+{
+  "name": "ggsay-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "tauri": "tauri"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.28.1",
+  "devDependencies": {
+    "@tauri-apps/cli": "^2.10.1",
+    "@vitejs/plugin-vue": "^6.0.5",
+    "typescript": "^6.0.2",
+    "vite": "^8.0.7",
+    "vue": "^3.5.32",
+    "vue-tsc": "^3.2.6"
+  },
+  "dependencies": {
+    "@tauri-apps/api": "^2.10.1",
+    "pinia": "^3.0.4",
+    "vue-i18n": "^11.3.1",
+    "vue-router": "^4.6.4"
+  }
+}
