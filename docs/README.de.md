@@ -28,7 +28,7 @@ Mit Tauri + Vue 3 gebaut — kleiner Installer, schneller Start, native Performa
 
 ## 🚀 Installation
 
-Lade die neueste Version von [Releases](https://github.com/rechard-edward/ggsay-app/releases):
+Lade die neueste Version von [Releases](https://github.com/rechard-edward/ggsay/releases):
 
 - **Windows**: `ggsay_x.y.z_x64-setup.exe` (NSIS-Installer mit lokalisiertem Setup-Assistenten in 8 Sprachen)
 
@@ -108,4 +108,4 @@ MIT License — siehe [LICENSE](../LICENSE)
 ## 🔗 Links
 
 - Webseite: [ggsay.com](https://www.ggsay.com)
-- Issues: [GitHub Issues](https://github.com/rechard-edward/ggsay-app/issues)
+- Issues: [GitHub Issues](https://github.com/rechard-edward/ggsay/issues)

@@ -28,7 +28,7 @@ Construit avec Tauri + Vue 3 — installateur léger, démarrage rapide, perform
 
 ## 🚀 Installation
 
-Téléchargez la dernière version depuis [Releases](https://github.com/rechard-edward/ggsay-app/releases) :
+Téléchargez la dernière version depuis [Releases](https://github.com/rechard-edward/ggsay/releases) :
 
 - **Windows** : `ggsay_x.y.z_x64-setup.exe` (installateur NSIS avec assistant localisé en 8 langues)
 
@@ -108,4 +108,4 @@ MIT License — voir [LICENSE](../LICENSE)
 ## 🔗 Liens
 
 - Site : [ggsay.com](https://www.ggsay.com)
-- Issues : [GitHub Issues](https://github.com/rechard-edward/ggsay-app/issues)
+- Issues : [GitHub Issues](https://github.com/rechard-edward/ggsay/issues)

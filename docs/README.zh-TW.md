@@ -28,7 +28,7 @@
 
 ## 🚀 安裝
 
-前往 [Releases](https://github.com/rechard-edward/ggsay-app/releases) 下載最新版本:
+前往 [Releases](https://github.com/rechard-edward/ggsay/releases) 下載最新版本:
 
 - **Windows**:`ggsay_x.y.z_x64-setup.exe`(NSIS 安裝包,支援中/英/日/韓/西/法/德多語言安裝精靈)
 
@@ -108,4 +108,4 @@ MIT License — 詳見 [LICENSE](../LICENSE)
 ## 🔗 連結
 
 - 官網:[ggsay.com](https://www.ggsay.com)
-- Issues:[GitHub Issues](https://github.com/rechard-edward/ggsay-app/issues)
+- Issues:[GitHub Issues](https://github.com/rechard-edward/ggsay/issues)
