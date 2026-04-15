@@ -28,9 +28,9 @@
 
 ## 🚀 安装
 
-前往 [Releases](https://github.com/rechard-edward/ggsay/releases) 下载最新版本:
+前往 [Releases](https://github.com/rechard-edward/ggsay/releases) 下载最新 **Windows x64** 安装包:
 
-- **Windows**:`ggsay_x.y.z_x64-setup.exe`(NSIS 安装包,支持中/英/日/韩/西/法/德多语言安装向导)
+- `ggsay_x.y.z_x64-setup.exe` —— 单个多语言安装包。安装向导和 App 本身都支持 8 种语言(简体中文 / 繁體中文 / English / 日本語 / 한국어 / Español / Français / Deutsch),首次启动自动识别系统语言。
 
 ## 🎮 使用
 
@@ -69,16 +69,7 @@ pnpm tauri build
 构建完成后:
 
 - 主程序:`src-tauri/target/release/ggsay.exe`
-- NSIS 安装包:`src-tauri/target/release/bundle/nsis/ggsay_x.y.z_x64-setup.exe`
-- MSI 安装包:`src-tauri/target/release/bundle/msi/ggsay_x.y.z_x64_en-US.msi`
-
-只想构建特定格式:
-
-```bash
-pnpm tauri build --bundles nsis   # 仅 NSIS
-pnpm tauri build --bundles msi    # 仅 MSI
-pnpm tauri build --bundles app    # 仅主程序,不打包
-```
+- NSIS 安装包(多语言):`src-tauri/target/release/bundle/nsis/ggsay_x.y.z_x64-setup.exe`
 
 ## 📁 项目结构
 

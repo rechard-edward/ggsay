@@ -28,9 +28,9 @@ Built with Tauri + Vue 3 — small installer, fast startup, native performance. 
 
 ## 🚀 Installation
 
-Download the latest release from [Releases](https://github.com/rechard-edward/ggsay/releases):
+Download the latest **Windows x64** installer from [Releases](https://github.com/rechard-edward/ggsay/releases):
 
-- **Windows**: `ggsay_x.y.z_x64-setup.exe` (NSIS installer with localized setup wizard in 8 languages)
+- `ggsay_x.y.z_x64-setup.exe` — a single multilingual installer. The setup wizard and the app itself support 8 languages (Chinese Simplified / Traditional, English, Japanese, Korean, Spanish, French, German) and auto-detect your OS language on first launch.
 
 ## 🎮 Usage
 
@@ -69,16 +69,7 @@ pnpm tauri build
 Artifacts:
 
 - Main binary: `src-tauri/target/release/ggsay.exe`
-- NSIS installer: `src-tauri/target/release/bundle/nsis/ggsay_x.y.z_x64-setup.exe`
-- MSI installer: `src-tauri/target/release/bundle/msi/ggsay_x.y.z_x64_en-US.msi`
-
-Build specific formats only:
-
-```bash
-pnpm tauri build --bundles nsis   # NSIS only
-pnpm tauri build --bundles msi    # MSI only
-pnpm tauri build --bundles app    # Binary only, no installer
-```
+- NSIS installer (multilingual): `src-tauri/target/release/bundle/nsis/ggsay_x.y.z_x64-setup.exe`
 
 ## 📁 Project Structure
 
