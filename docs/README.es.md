@@ -32,6 +32,12 @@ Descarga el último instalador de **Windows x64** desde [Releases](https://githu
 
 - `ggsay_x.y.z_x64-setup.exe` — un único instalador multilingüe. Tanto el asistente de instalación como la aplicación soportan 8 idiomas (简体中文 / 繁體中文 / English / 日本語 / 한국어 / Español / Français / Deutsch) y detectan automáticamente el idioma del sistema en el primer inicio.
 
+### ⚠️ Aviso de primera instalación
+
+La primera vez que ejecutes el instalador, **Windows SmartScreen puede mostrar una advertencia "Windows protegió su PC"**. Esto ocurre porque el instalador aún no está firmado con un certificado de firma de código de pago — normal en lanzamientos iniciales de código abierto. No es un virus. Para continuar: haz clic en **Más información** → **Ejecutar de todas formas**.
+
+Tu antivirus también puede marcarlo. GGSay funciona **simulando pulsaciones de teclas** (Ctrl+V, Enter) para pegar y enviar mensajes dentro de los juegos — esa es la funcionalidad principal. Algunos antivirus tratan por defecto cualquier aplicación que sintetice entrada de teclado como sospechosa. El código fuente está totalmente abierto en este repositorio; puedes auditarlo o compilarlo tú mismo. Si tu antivirus bloquea la aplicación, añade `ggsay.exe` a su lista de exclusiones.
+
 ## 🎮 Uso
 
 1. **Crear un juego**: página Juegos → Nuevo juego, introduce un nombre

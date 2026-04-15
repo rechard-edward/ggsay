@@ -32,6 +32,12 @@ Lade den neuesten **Windows x64**-Installer von [Releases](https://github.com/re
 
 - `ggsay_x.y.z_x64-setup.exe` — ein einzelner mehrsprachiger Installer. Sowohl der Setup-Assistent als auch die App unterstützen 8 Sprachen (简体中文 / 繁體中文 / English / 日本語 / 한국어 / Español / Français / Deutsch) und erkennen beim ersten Start automatisch die Systemsprache.
 
+### ⚠️ Hinweis zur Erstinstallation
+
+Beim ersten Ausführen des Installers zeigt **Windows SmartScreen möglicherweise die Warnung „Der Computer wurde durch Windows geschützt"**. Der Installer ist noch nicht mit einem kostenpflichtigen Code-Signing-Zertifikat signiert — bei frühen Open-Source-Releases üblich. Es ist kein Virus. Zum Fortfahren: **Weitere Informationen** → **Trotzdem ausführen** klicken.
+
+Dein Antivirus kann die App ebenfalls melden. GGSay **simuliert Tastatureingaben** (Strg+V, Enter), um Nachrichten in Spielen einzufügen und zu senden — das ist die Kernfunktion. Manche Antivirenprogramme stufen per Heuristik jede App als verdächtig ein, die Tasteneingaben synthetisiert. Der Quellcode dieses Repositorys ist vollständig offen; du kannst ihn auditieren oder selbst kompilieren. Wenn dein Antivirus die App blockiert, füge `ggsay.exe` zur Ausschlussliste hinzu.
+
 ## 🎮 Verwendung
 
 1. **Spiel anlegen**: Spiele-Seite → Neues Spiel, Name eingeben

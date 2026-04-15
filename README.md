@@ -32,6 +32,12 @@ Download the latest **Windows x64** installer from [Releases](https://github.com
 
 - `ggsay_x.y.z_x64-setup.exe` — a single multilingual installer. The setup wizard and the app itself support 8 languages (Chinese Simplified / Traditional, English, Japanese, Korean, Spanish, French, German) and auto-detect your OS language on first launch.
 
+### ⚠️ First-time install notice
+
+On first launch, **Windows SmartScreen may show a "Windows protected your PC" warning**. The installer is not signed with a paid code-signing certificate yet, which is normal for early open-source releases. To proceed: click **More info** → **Run anyway**.
+
+Your antivirus may also flag the app. GGSay works by **simulating keystrokes** (Ctrl+V, Enter) to paste and send messages inside games — that's the core feature. Some antivirus products treat any app that synthesizes keyboard input as suspicious by default. The source code is fully open in this repository; you can audit it or build it yourself. If your AV blocks the app, add `ggsay.exe` to its exclusion list.
+
 ## 🎮 Usage
 
 1. **Create a game**: Games page → New Game, enter a name
