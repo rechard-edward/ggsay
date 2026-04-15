@@ -4,6 +4,7 @@ import router from "./router";
 import i18n from "./i18n";
 import App from "./App.vue";
 import "./styles/global.css";
+import "flag-icons/css/flag-icons.min.css";
 
 import { useGamesStore } from "./stores/games";
 import { useSettingsStore } from "./stores/settings";

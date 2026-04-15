@@ -1,6 +1,6 @@
 # GGSay
 
-[🇨🇳 简体中文](./docs/README.zh-CN.md) · [🇹🇼 繁體中文](./docs/README.zh-TW.md) · **🇺🇸 English** · [🇯🇵 日本語](./docs/README.ja.md) · [🇰🇷 한국어](./docs/README.ko.md) · [🇪🇸 Español](./docs/README.es.md) · [🇫🇷 Français](./docs/README.fr.md) · [🇩🇪 Deutsch](./docs/README.de.md)
+[<img src="https://flagcdn.com/16x12/cn.png" width="16" /> 简体中文](./docs/README.zh-CN.md) · [<img src="https://flagcdn.com/16x12/tw.png" width="16" /> 繁體中文](./docs/README.zh-TW.md) · **<img src="https://flagcdn.com/16x12/us.png" width="16" /> English** · [<img src="https://flagcdn.com/16x12/jp.png" width="16" /> 日本語](./docs/README.ja.md) · [<img src="https://flagcdn.com/16x12/kr.png" width="16" /> 한국어](./docs/README.ko.md) · [<img src="https://flagcdn.com/16x12/es.png" width="16" /> Español](./docs/README.es.md) · [<img src="https://flagcdn.com/16x12/fr.png" width="16" /> Français](./docs/README.fr.md) · [<img src="https://flagcdn.com/16x12/de.png" width="16" /> Deutsch](./docs/README.de.md)
 
 ---
 

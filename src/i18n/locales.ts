@@ -1,18 +1,19 @@
 export interface LocaleInfo {
   code: string;
-  flag: string;
+  /** ISO 3166-1 alpha-2 country code (lowercase) for the flag-icons CSS class. */
+  country: string;
   name: string;
 }
 
 export const LOCALES: LocaleInfo[] = [
-  { code: "zh-CN", flag: "🇨🇳", name: "简体中文" },
-  { code: "zh-TW", flag: "🇹🇼", name: "繁體中文" },
-  { code: "en",    flag: "🇺🇸", name: "English" },
-  { code: "ja",    flag: "🇯🇵", name: "日本語" },
-  { code: "ko",    flag: "🇰🇷", name: "한국어" },
-  { code: "es",    flag: "🇪🇸", name: "Español" },
-  { code: "fr",    flag: "🇫🇷", name: "Français" },
-  { code: "de",    flag: "🇩🇪", name: "Deutsch" },
+  { code: "zh-CN", country: "cn", name: "简体中文" },
+  { code: "zh-TW", country: "tw", name: "繁體中文" },
+  { code: "en",    country: "us", name: "English" },
+  { code: "ja",    country: "jp", name: "日本語" },
+  { code: "ko",    country: "kr", name: "한국어" },
+  { code: "es",    country: "es", name: "Español" },
+  { code: "fr",    country: "fr", name: "Français" },
+  { code: "de",    country: "de", name: "Deutsch" },
 ];
 
 export const LOCALE_CODES = LOCALES.map((l) => l.code);
