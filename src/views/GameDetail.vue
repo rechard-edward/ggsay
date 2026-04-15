@@ -82,14 +82,14 @@ function handleDeleteMsg(id: string) { if (!game.value || !game.value.activeGrou
     <div class="toolbar">
       <div class="tb-item">
         <label :title="t('gameDetail.preActionHint')">{{ t('gameDetail.preAction') }}</label>
-        <HotkeyInput :modelValue="game.action.preAction" @update:modelValue="store.updateGame(game.id, { action: { ...game.action, preAction: $event } })" :placeholder="t('gameDetail.preActionPlaceholder')" compact />
+        <HotkeyInput :modelValue="game.action.preAction" @update:modelValue="store.updateGame(game.id, { action: { ...game.action, preAction: $event } })" :placeholder="t('gameDetail.preActionPlaceholder')" compact action-mode />
       </div>
       <span class="tb-arrow">→</span>
       <span class="tb-step">{{ t('gameDetail.pasteStep') }}</span>
       <span class="tb-arrow">→</span>
       <div class="tb-item">
         <label :title="t('gameDetail.postActionHint')">{{ t('gameDetail.postAction') }}</label>
-        <HotkeyInput :modelValue="game.action.postAction" @update:modelValue="store.updateGame(game.id, { action: { ...game.action, postAction: $event } })" :placeholder="t('gameDetail.postActionPlaceholder')" compact />
+        <HotkeyInput :modelValue="game.action.postAction" @update:modelValue="store.updateGame(game.id, { action: { ...game.action, postAction: $event } })" :placeholder="t('gameDetail.postActionPlaceholder')" compact action-mode />
       </div>
       <div class="tb-sep"></div>
       <div class="tb-item">

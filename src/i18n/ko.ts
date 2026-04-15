@@ -61,6 +61,8 @@ export default {
     setHotkey: "단축키 설정",
     conflict: "충돌: \"{label}\"에서 사용 중",
     systemConflict: "이 단축키는 다른 앱 또는 시스템에서 이미 사용 중입니다",
+    blockedKey: "이 키는 단독으로 사용할 수 없습니다 (Enter / Escape / Tab / Backspace 는 OS 조작을 방해함)",
+    invalidActionKey: "여기서는 Enter / Tab / Space / Escape 만 사용할 수 있습니다",
     retry: "다시 설정",
   },
 

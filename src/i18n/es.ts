@@ -61,6 +61,8 @@ export default {
     setHotkey: "Configurar tecla",
     conflict: "Conflicto: ya usada por \"{label}\"",
     systemConflict: "Esta tecla ya está en uso por otra app o el sistema",
+    blockedKey: "Esta tecla no se puede usar sola (Enter / Escape / Tab / Backspace bloquearían los diálogos del sistema)",
+    invalidActionKey: "Aquí solo se permite Enter / Tab / Space / Escape",
     retry: "Reintentar",
   },
 

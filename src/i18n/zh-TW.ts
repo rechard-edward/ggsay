@@ -61,6 +61,8 @@ export default {
     setHotkey: "設定熱鍵",
     conflict: "熱鍵衝突：已被「{label}」使用",
     systemConflict: "此熱鍵已被其他程式或系統占用，請更換",
+    blockedKey: "此按鍵不能單獨作為熱鍵 (Enter / Escape / Tab / Backspace 會干擾系統操作)",
+    invalidActionKey: "此處僅支援 Enter / Tab / Space / Escape 單鍵",
     retry: "重新設定",
   },
 

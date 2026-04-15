@@ -13,7 +13,15 @@ const props = defineProps<{
   gameId?: string;
   msgId?: string;
   compact?: boolean;
+  /** When true, only accept bare Enter/Tab/Space/Escape (for pre/post action slots).
+   *  When false (default), require at least one modifier OR an F1–F12 key. */
+  actionMode?: boolean;
 }>();
+
+const ACTION_KEYS = new Set(["Enter", "Tab", "Space", "Escape"]);
+/** Keys that would break basic OS/UI interaction if bound as a bare global hotkey.
+ *  When combined with a modifier (e.g. Ctrl+Enter) they are still fine. */
+const BLOCKED_BARE_KEYS = new Set(["Enter", "Escape", "Tab", "Backspace"]);
 
 const emit = defineEmits<{
   "update:modelValue": [value: string];
@@ -76,17 +84,44 @@ async function finishRecording() {
 async function onKeyDown(e: KeyboardEvent) {
   e.preventDefault();
   e.stopPropagation();
-  if (e.key === "Escape") { finishRecording(); return; }
+  if (e.key === "Escape" && props.actionMode !== true) {
+    // In action mode Escape is a valid action key; otherwise treat as cancel.
+    finishRecording();
+    return;
+  }
   const key = e.key;
   // Wait until a non-modifier key is pressed so "Ctrl alone" isn't captured.
   if (["Control", "Alt", "Shift", "Meta"].includes(key)) return;
+
+  const hasMod = e.ctrlKey || e.altKey || e.shiftKey || e.metaKey;
+  const mainKey = key.length === 1 ? key.toUpperCase() : key;
+
+  // ---- Action mode (pre/post action slots): bare Enter/Tab/Space/Escape only ----
+  if (props.actionMode) {
+    if (hasMod || !ACTION_KEYS.has(mainKey)) {
+      conflict.value = t("hotkey.invalidActionKey");
+      finishRecording();
+      return;
+    }
+    conflict.value = null;
+    emit("update:modelValue", mainKey);
+    finishRecording();
+    return;
+  }
+
+  // ---- Hotkey mode: block only OS-critical bare keys ----
+  if (!hasMod && BLOCKED_BARE_KEYS.has(mainKey)) {
+    conflict.value = t("hotkey.blockedKey");
+    finishRecording();
+    return;
+  }
 
   const parts: string[] = [];
   if (e.ctrlKey) parts.push("Ctrl");
   if (e.altKey) parts.push("Alt");
   if (e.shiftKey) parts.push("Shift");
   if (e.metaKey) parts.push("Meta");
-  parts.push(key.length === 1 ? key.toUpperCase() : key);
+  parts.push(mainKey);
 
   const hotkey = parts.join("+");
 
@@ -99,7 +134,6 @@ async function onKeyDown(e: KeyboardEvent) {
   }
 
   // 2. System-level probe: is any OTHER app holding this hotkey?
-  //    pauseListening() already ran in startRecording, so GGSay isn't holding it now.
   try {
     await invoke("probe_hotkey", { hotkey });
     conflict.value = null;

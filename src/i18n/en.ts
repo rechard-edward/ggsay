@@ -86,6 +86,8 @@ export default {
     setHotkey: "Set hotkey",
     conflict: "Conflict: already used by \"{label}\"",
     systemConflict: "This hotkey is already in use by another app or the system",
+    blockedKey: "This key cannot be used alone (Enter / Escape / Tab / Backspace would break OS dialogs)",
+    invalidActionKey: "Only Enter / Tab / Space / Escape (no modifiers) is allowed here",
     retry: "Retry",
   },
 
