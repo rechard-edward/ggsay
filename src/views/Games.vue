@@ -16,10 +16,10 @@ function handleDeleteGame(e: Event, gameId: string, gameName: string) {
   store.removeGame(gameId);
 }
 
-function handleAdd() {
+async function handleAdd() {
   const name = newName.value.trim();
   if (!name) return;
-  const game = store.addGame(name);
+  const game = await store.addGame(name);
   newName.value = "";
   showAdd.value = false;
   router.push(`/games/${game.id}`);

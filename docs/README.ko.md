@@ -1,0 +1,111 @@
+# GGSay
+
+[🇨🇳 简体中文](./README.zh-CN.md) · [🇹🇼 繁體中文](./README.zh-TW.md) · [🇺🇸 English](../README.md) · [🇯🇵 日本語](./README.ja.md) · **🇰🇷 한국어** · [🇪🇸 Español](./README.es.md) · [🇫🇷 Français](./README.fr.md) · [🇩🇪 Deutsch](./README.de.md)
+
+---
+
+게임 내에서 미리 설정한 메시지를 단축키 하나로 전송하는 데스크톱 도구. 핫키를 바인딩하고, 누르고 있는 동안 연속 전송, 떼면 즉시 중단.
+
+Tauri + Vue 3 기반. 작은 설치 파일, 빠른 시작, 네이티브 성능. Windows 지원.
+
+## ✨ 기능
+
+- **전역 단축키** — 창 전환 없이 어떤 게임에서든 즉시 전송
+- **2가지 트리거 모드**
+  - 단일 키: 한 단축키로 그룹에서 랜덤 전송 (셔플, 중복 없음)
+  - 다중 단축키: 메시지마다 개별 단축키로 정확히 지정 전송
+- **누르고 있는 동안 연속 전송** — 떼면 즉시 중단
+- **게임 / 그룹 / 메시지** 3단계 관리, 상황 전환 원클릭
+- **전 / 후 동작** — 전송 전후 키 설정 가능 (예: Enter로 채팅 열기/닫기)
+- **자동 언어 감지** — 첫 실행 시 OS 언어 자동 적용, 8개 언어 지원
+- **시스템 트레이** — 닫으면 트레이로 최소화, 게임 방해 없음
+- **시작 시 자동 실행** (선택)
+- **로컬 데이터** — 설정은 로컬 SQLite에 저장
+
+## 📸 스크린샷
+
+> _준비 중_
+
+## 🚀 설치
+
+[Releases](https://github.com/rechard-edward/ggsay-app/releases)에서 최신 버전 다운로드:
+
+- **Windows**: `ggsay_x.y.z_x64-setup.exe` (NSIS 설치 프로그램, 8개 언어 지원 설치 마법사)
+
+## 🎮 사용법
+
+1. **게임 생성**: 게임 페이지 → 새 게임, 이름 입력
+2. **전 / 후 동작 설정**: 대부분 Enter로 채팅 열기 + Enter로 전송
+3. **그룹 생성 및 메시지 추가**: 상황별로 분류 (예: "랭크", "일반")
+4. **트리거 단축키 설정**:
+   - 단일 키 모드: 게임당 하나
+   - 다중 단축키 모드: 메시지마다 설정
+5. **대시보드 → 시작**: 게임으로 돌아가 단축키 누르면 전송
+
+## 🛠️ 기술 스택
+
+- **프론트엔드**: Vue 3 + TypeScript + Pinia + Vue Router + vue-i18n
+- **데스크톱 셸**: Tauri 2 (Rust)
+- **번들러**: Vite
+- **로컬 저장소**: SQLite (`tauri-plugin-sql`)
+- **전역 단축키**: `tauri-plugin-global-shortcut`
+- **키 시뮬레이션**: [enigo](https://github.com/enigo-rs/enigo)
+
+## 🧑‍💻 개발
+
+필수: Node.js 20+, pnpm, Rust toolchain, Visual Studio C++ Build Tools (Windows)
+
+```bash
+# 의존성 설치
+pnpm install
+
+# 개발 모드 (핫 리로드)
+pnpm tauri dev
+
+# 프로덕션 빌드 + 설치 프로그램
+pnpm tauri build
+```
+
+산출물:
+
+- 실행 파일: `src-tauri/target/release/ggsay.exe`
+- NSIS 설치 파일: `src-tauri/target/release/bundle/nsis/ggsay_x.y.z_x64-setup.exe`
+- MSI 설치 파일: `src-tauri/target/release/bundle/msi/ggsay_x.y.z_x64_en-US.msi`
+
+특정 형식만 빌드:
+
+```bash
+pnpm tauri build --bundles nsis   # NSIS만
+pnpm tauri build --bundles msi    # MSI만
+pnpm tauri build --bundles app    # 실행 파일만
+```
+
+## 📁 프로젝트 구조
+
+```
+ggsay-app/
+├── src/                   # 프론트엔드
+│   ├── views/             # 페이지
+│   ├── components/        # 컴포넌트
+│   ├── stores/            # Pinia (games / settings)
+│   ├── i18n/              # 번역
+│   └── router/
+├── src-tauri/             # Tauri / Rust
+│   ├── src/lib.rs         # 단축키, 키 시뮬레이션, 트레이
+│   ├── capabilities/      # 권한
+│   └── tauri.conf.json
+└── docs/                  # 다국어 README
+```
+
+## 🤝 기여
+
+Issue와 PR 환영. 제출 전 `pnpm tauri build`로 빌드 확인 부탁드립니다.
+
+## 📄 라이선스
+
+MIT License — [LICENSE](../LICENSE) 참조
+
+## 🔗 링크
+
+- 웹사이트: [ggsay.com](https://www.ggsay.com)
+- Issues: [GitHub Issues](https://github.com/rechard-edward/ggsay-app/issues)

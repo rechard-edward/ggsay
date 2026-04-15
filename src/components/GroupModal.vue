@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, watch, nextTick } from "vue";
+import { ref, watch } from "vue";
 import { useI18n } from "vue-i18n";
 import { useGamesStore, type Group } from "../stores/games";
 import Modal from "./Modal.vue";
@@ -21,7 +21,6 @@ const groupName = ref("");
 const editingMsgId = ref<string | null>(null);
 const editMsgContent = ref("");
 const newMsgContent = ref("");
-const addingMsg = ref(false);
 
 const game = store.games.find((g) => g.id === props.gameId)!;
 
@@ -45,25 +44,16 @@ function currentGroup(): Group | null {
 }
 
 // Save group name
-function saveGroupName() {
+async function saveGroupName() {
   const name = groupName.value.trim();
   if (!name) return;
 
   if (props.groupId) {
-    store.updateGroup(props.gameId, props.groupId, name);
+    await store.updateGroup(props.gameId, props.groupId, name);
   } else {
-    const group = store.addGroup(props.gameId, name);
-    if (group) {
-      // Switch to edit mode for the new group
-      emit("close");
-    }
+    const group = await store.addGroup(props.gameId, name);
+    if (group) emit("close");
   }
-}
-
-// Messages
-function startAddMsg() {
-  newMsgContent.value = "";
-  addingMsg.value = true;
 }
 
 function handleAddMsg() {

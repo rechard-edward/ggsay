@@ -81,12 +81,14 @@ function handleDeleteMsg(id: string) { if (!game.value || !game.value.activeGrou
     <!-- Toolbar -->
     <div class="toolbar">
       <div class="tb-item">
-        <label>{{ t('gameDetail.preAction') }}</label>
+        <label :title="t('gameDetail.preActionHint')">{{ t('gameDetail.preAction') }}</label>
         <HotkeyInput :modelValue="game.action.preAction" @update:modelValue="store.updateGame(game.id, { action: { ...game.action, preAction: $event } })" :placeholder="t('gameDetail.preActionPlaceholder')" compact />
       </div>
       <span class="tb-arrow">→</span>
+      <span class="tb-step">{{ t('gameDetail.pasteStep') }}</span>
+      <span class="tb-arrow">→</span>
       <div class="tb-item">
-        <label>{{ t('gameDetail.postAction') }}</label>
+        <label :title="t('gameDetail.postActionHint')">{{ t('gameDetail.postAction') }}</label>
         <HotkeyInput :modelValue="game.action.postAction" @update:modelValue="store.updateGame(game.id, { action: { ...game.action, postAction: $event } })" :placeholder="t('gameDetail.postActionPlaceholder')" compact />
       </div>
       <div class="tb-sep"></div>
@@ -100,6 +102,12 @@ function handleDeleteMsg(id: string) { if (!game.value || !game.value.activeGrou
         <label>{{ t('gameDetail.triggerHotkey') }}</label>
         <HotkeyInput :modelValue="game.singleHotkey" @update:modelValue="store.updateGame(game.id, { singleHotkey: $event })" :gameId="game.id" compact />
       </div>
+    </div>
+
+    <!-- Action tip banner -->
+    <div class="action-tip">
+      <strong>{{ t('gameDetail.actionTip') }}</strong>
+      <span>{{ t('gameDetail.actionTipExample') }}</span>
     </div>
 
     <!-- Master-Detail Workspace -->
@@ -249,6 +257,19 @@ function handleDeleteMsg(id: string) { if (!game.value || !game.value.activeGrou
 .tb-item { display: flex; align-items: center; gap: 6px; }
 .tb-item label { font-size: 10px; color: var(--color-text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; white-space: nowrap; }
 .tb-arrow { color: var(--color-text-muted); font-size: 12px; opacity: 0.35; }
+.tb-step { font-size: 11px; color: var(--color-text-muted); padding: 3px 8px; border-radius: 4px; background: var(--color-bg-hover); }
+.tb-item label { cursor: help; }
+.action-tip {
+  margin: 8px 0 16px;
+  padding: 8px 14px;
+  background: var(--color-bg-hover);
+  border-left: 3px solid var(--color-primary);
+  border-radius: 4px;
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+}
+.action-tip strong { color: var(--color-text); margin-right: 6px; font-weight: 600; }
 .tb-sep { width: 1px; height: 20px; background: var(--color-border); }
 .seg { display: flex; background: var(--color-bg); border-radius: 5px; padding: 2px; }
 .seg button { padding: 3px 10px; font-size: 11px; font-weight: 600; color: var(--color-text-muted); border-radius: 3px; white-space: nowrap; }

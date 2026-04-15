@@ -52,11 +52,14 @@ export default {
     // Action config
     actionConfig: "动作配置",
     actionDesc: "发送消息时的按键序列：前置动作 → 粘贴消息内容 → 后置动作",
-    preAction: "前置动作",
-    postAction: "后置动作",
+    preAction: "发送前",
+    postAction: "发送后",
+    pasteStep: "粘贴",
     optional: "可选",
     preActionHint: "发送消息前按下的键，如按 Enter 打开游戏聊天框。留空则跳过",
     postActionHint: "粘贴消息后按下的键，如按 Enter 确认发送。留空则跳过",
+    actionTip: "💡 大多数游戏：",
+    actionTipExample: "「发送前 Enter」打开聊天框，粘贴消息内容，再「发送后 Enter」发送。如果游戏聊天框已打开则「发送前」留空即可。",
     preActionPlaceholder: "无，点击设置",
     postActionPlaceholder: "无，点击设置",
 
@@ -111,6 +114,7 @@ export default {
   // Settings
   settings: {
     title: "设置",
+    language: "语言",
 
     general: "通用",
     autoStart: "开机自启动",

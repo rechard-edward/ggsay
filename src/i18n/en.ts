@@ -47,11 +47,14 @@ export default {
 
     actionConfig: "Action Config",
     actionDesc: "Key sequence: Pre-action → Paste message → Post-action",
-    preAction: "Pre-action",
-    postAction: "Post-action",
+    preAction: "Before",
+    postAction: "After",
+    pasteStep: "Paste",
     optional: "Optional",
-    preActionHint: "Key to press before sending, e.g. Enter to open chat. Leave empty to skip",
-    postActionHint: "Key to press after pasting, e.g. Enter to send. Leave empty to skip",
+    preActionHint: "Key pressed before sending, e.g. Enter to open chat. Leave empty to skip",
+    postActionHint: "Key pressed after pasting, e.g. Enter to send. Leave empty to skip",
+    actionTip: "💡 Most games:",
+    actionTipExample: "\"Before: Enter\" opens the chat box, the message is pasted, then \"After: Enter\" sends it. If the chat is already open, leave \"Before\" empty.",
     preActionPlaceholder: "None, click to set",
     postActionPlaceholder: "None, click to set",
 
@@ -99,6 +102,7 @@ export default {
 
   settings: {
     title: "Settings",
+    language: "Language",
 
     general: "General",
     autoStart: "Start on boot",

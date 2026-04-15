@@ -53,36 +53,49 @@ function checkConflict(hotkey: string): string | null {
   return existing ? existing.label : null;
 }
 
-function startRecording() {
+let wasListening = false;
+
+async function startRecording() {
+  wasListening = store.isListening;
+  // Always clear OS-level hotkey grabs so the keypress reaches the webview,
+  // even if we think isListening is false (state may be stale after mode switch).
+  await store.pauseListening();
   recording.value = true;
   conflict.value = null;
-  window.addEventListener("keydown", onKeyDown, { once: true });
+  window.addEventListener("keydown", onKeyDown);
+}
+
+async function finishRecording() {
+  window.removeEventListener("keydown", onKeyDown);
+  recording.value = false;
+  if (wasListening) await store.resumeListening();
+  wasListening = false;
 }
 
 function onKeyDown(e: KeyboardEvent) {
   e.preventDefault();
   e.stopPropagation();
-  if (e.key === "Escape") { recording.value = false; return; }
+  if (e.key === "Escape") { finishRecording(); return; }
+  const key = e.key;
+  // Wait until a non-modifier key is pressed so "Ctrl alone" isn't captured.
+  if (["Control", "Alt", "Shift", "Meta"].includes(key)) return;
+
   const parts: string[] = [];
   if (e.ctrlKey) parts.push("Ctrl");
   if (e.altKey) parts.push("Alt");
   if (e.shiftKey) parts.push("Shift");
   if (e.metaKey) parts.push("Meta");
-  const key = e.key;
-  if (!["Control", "Alt", "Shift", "Meta"].includes(key)) {
-    parts.push(key.length === 1 ? key.toUpperCase() : key);
+  parts.push(key.length === 1 ? key.toUpperCase() : key);
+
+  const hotkey = parts.join("+");
+  const conflictLabel = checkConflict(hotkey);
+  if (conflictLabel) {
+    conflict.value = conflictLabel;
+  } else {
+    conflict.value = null;
+    emit("update:modelValue", hotkey);
   }
-  if (parts.length) {
-    const hotkey = parts.join("+");
-    const conflictLabel = checkConflict(hotkey);
-    if (conflictLabel) {
-      conflict.value = conflictLabel;
-    } else {
-      conflict.value = null;
-      emit("update:modelValue", hotkey);
-    }
-  }
-  recording.value = false;
+  finishRecording();
 }
 
 function clear() {

@@ -1,6 +1,42 @@
+# Dependencies
 node_modules/
+
+# Build output
 dist/
+dist-ssr/
 target/
 .vite/
+*.tsbuildinfo
+
+# Logs
 *.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS
 .DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Env / local overrides
+.env
+.env.local
+.env.*.local
+*.local
+
+# Claude Code project-local files
+.claude/
+CLAUDE.md
+CLAUDE.local.md
+
+# Tauri bundle artifacts (belt-and-suspenders — also covered by target/)
+src-tauri/target/
+src-tauri/gen/schemas/
