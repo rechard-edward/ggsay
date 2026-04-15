@@ -59,7 +59,8 @@ export default {
     clickToSet: 'Klicken, um Taste festzulegen',
     recording: 'Beliebige Taste drücken... (Esc zum Abbrechen)',
     setHotkey: 'Taste festlegen',
-    conflict: 'Konflikt: bereits von „{label}“ verwendet',
+    conflict: 'Konflikt: bereits von „{label}” verwendet',
+    systemConflict: 'Dieser Hotkey wird bereits von einer anderen App oder dem System verwendet',
     retry: 'Erneut versuchen',
   },
 

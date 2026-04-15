@@ -95,6 +95,7 @@ export default {
     recording: "按下任意键... (Esc 取消)",
     setHotkey: "设置热键",
     conflict: "热键冲突：已被「{label}」使用",
+    systemConflict: "此热键已被其他程序或系统占用，请换一个",
     retry: "重新设置",
   },
 

@@ -60,6 +60,7 @@ export default {
     recording: "아무 키나 누르세요... (Esc 취소)",
     setHotkey: "단축키 설정",
     conflict: "충돌: \"{label}\"에서 사용 중",
+    systemConflict: "이 단축키는 다른 앱 또는 시스템에서 이미 사용 중입니다",
     retry: "다시 설정",
   },
 

@@ -221,6 +221,21 @@ fn register_hotkeys(
     Ok(())
 }
 
+/// Probe whether a hotkey is available by trying to register it and
+/// immediately unregistering. Returns Ok if the OS accepts the registration
+/// (i.e. no other app currently owns the same shortcut), Err otherwise.
+///
+/// Callers should ensure GGSay's own listening is paused first, otherwise
+/// they'll see a self-conflict.
+#[tauri::command]
+fn probe_hotkey(app: AppHandle, hotkey: String) -> Result<(), String> {
+    let sc = parse_shortcut(&hotkey)?;
+    let gs = app.global_shortcut();
+    gs.register(sc).map_err(|e| e.to_string())?;
+    let _ = gs.unregister(sc);
+    Ok(())
+}
+
 #[tauri::command]
 fn unregister_all_hotkeys(
     app: AppHandle,
@@ -380,6 +395,7 @@ pub fn run() {
             send_message,
             register_hotkeys,
             unregister_all_hotkeys,
+            probe_hotkey,
             update_settings
         ])
         .run(tauri::generate_context!())

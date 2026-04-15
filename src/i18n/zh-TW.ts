@@ -60,6 +60,7 @@ export default {
     recording: "按下任意鍵... (Esc 取消)",
     setHotkey: "設定熱鍵",
     conflict: "熱鍵衝突：已被「{label}」使用",
+    systemConflict: "此熱鍵已被其他程式或系統占用，請更換",
     retry: "重新設定",
   },
 

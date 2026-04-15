@@ -60,6 +60,7 @@ export default {
     recording: "Appuyez sur une touche... (Échap pour annuler)",
     setHotkey: "Définir la touche",
     conflict: "Conflit : déjà utilisée par « {label} »",
+    systemConflict: "Ce raccourci est déjà utilisé par une autre app ou le système",
     retry: "Réessayer",
   },
 

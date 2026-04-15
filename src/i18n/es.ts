@@ -60,6 +60,7 @@ export default {
     recording: "Pulsa cualquier tecla... (Esc para cancelar)",
     setHotkey: "Configurar tecla",
     conflict: "Conflicto: ya usada por \"{label}\"",
+    systemConflict: "Esta tecla ya está en uso por otra app o el sistema",
     retry: "Reintentar",
   },
 

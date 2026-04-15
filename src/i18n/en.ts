@@ -85,6 +85,7 @@ export default {
     recording: "Press any key... (Esc to cancel)",
     setHotkey: "Set hotkey",
     conflict: "Conflict: already used by \"{label}\"",
+    systemConflict: "This hotkey is already in use by another app or the system",
     retry: "Retry",
   },
 

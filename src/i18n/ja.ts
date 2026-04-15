@@ -60,6 +60,7 @@ export default {
     recording: "キーを押してください... (Esc でキャンセル)",
     setHotkey: "キー設定",
     conflict: "競合：「{label}」で使用中",
+    systemConflict: "このキーは他のアプリまたはシステムで使用中です",
     retry: "再設定",
   },
 

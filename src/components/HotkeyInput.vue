@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { useI18n } from "vue-i18n";
+import { invoke } from "@tauri-apps/api/core";
 import { useGamesStore } from "../stores/games";
 
 const { t } = useI18n();
@@ -72,7 +73,7 @@ async function finishRecording() {
   wasListening = false;
 }
 
-function onKeyDown(e: KeyboardEvent) {
+async function onKeyDown(e: KeyboardEvent) {
   e.preventDefault();
   e.stopPropagation();
   if (e.key === "Escape") { finishRecording(); return; }
@@ -88,12 +89,23 @@ function onKeyDown(e: KeyboardEvent) {
   parts.push(key.length === 1 ? key.toUpperCase() : key);
 
   const hotkey = parts.join("+");
+
+  // 1. Internal conflict check (other GGSay slots)
   const conflictLabel = checkConflict(hotkey);
   if (conflictLabel) {
-    conflict.value = conflictLabel;
-  } else {
+    conflict.value = t("hotkey.conflict", { label: conflictLabel });
+    finishRecording();
+    return;
+  }
+
+  // 2. System-level probe: is any OTHER app holding this hotkey?
+  //    pauseListening() already ran in startRecording, so GGSay isn't holding it now.
+  try {
+    await invoke("probe_hotkey", { hotkey });
     conflict.value = null;
     emit("update:modelValue", hotkey);
+  } catch {
+    conflict.value = t("hotkey.systemConflict");
   }
   finishRecording();
 }
@@ -117,7 +129,7 @@ function clear() {
       </button>
     </div>
     <div class="hk-conflict" v-if="conflict">
-      {{ t('hotkey.conflict', { label: conflict }) }}
+      {{ conflict }}
       <button class="hk-retry" @click="startRecording">{{ t('hotkey.retry') }}</button>
     </div>
   </div>
