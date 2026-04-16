@@ -24,7 +24,11 @@ Tauri + Vue 3 で構築。インストーラー小、起動高速、ネイティ
 
 ## 📸 スクリーンショット
 
-> _準備中_
+![ゲーム一覧](./screenshots/ja/games.png)
+
+![ゲーム詳細 — グループとメッセージ、個別のホットキー割り当て](./screenshots/ja/game-detail.png)
+
+![設定 — 8 言語対応、国旗アイコン付き](./screenshots/ja/settings.png)
 
 ## 🚀 インストール
 

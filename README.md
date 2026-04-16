@@ -24,7 +24,11 @@ Built with Tauri + Vue 3 — small installer, fast startup, native performance. 
 
 ## 📸 Screenshots
 
-> _Coming soon_
+![Games list](./docs/screenshots/en/games.png)
+
+![Game detail — groups and messages with per-message hotkeys](./docs/screenshots/en/game-detail.png)
+
+![Settings — 8 built-in languages with flag icons](./docs/screenshots/en/settings.png)
 
 ## 🚀 Installation
 

@@ -24,7 +24,11 @@ Construit avec Tauri + Vue 3 — installateur léger, démarrage rapide, perform
 
 ## 📸 Captures d'écran
 
-> _À venir_
+![Liste des jeux](./screenshots/fr/games.png)
+
+![Détail du jeu — groupes et messages, raccourcis individuels par message](./screenshots/fr/game-detail.png)
+
+![Paramètres — 8 langues intégrées avec icônes de drapeau](./screenshots/fr/settings.png)
 
 ## 🚀 Installation
 

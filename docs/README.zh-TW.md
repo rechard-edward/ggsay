@@ -24,7 +24,11 @@
 
 ## 📸 螢幕截圖
 
-> _待補充_
+![遊戲列表](./screenshots/zh-TW/games.png)
+
+![遊戲詳情 — 分組和訊息，每條可綁定獨立熱鍵](./screenshots/zh-TW/game-detail.png)
+
+![設定 — 內建 8 種語言，含國旗圖示](./screenshots/zh-TW/settings.png)
 
 ## 🚀 安裝
 

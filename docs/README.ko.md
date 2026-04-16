@@ -24,7 +24,11 @@ Tauri + Vue 3 기반. 작은 설치 파일, 빠른 시작, 네이티브 성능. 
 
 ## 📸 스크린샷
 
-> _준비 중_
+![게임 목록](./screenshots/ko/games.png)
+
+![게임 상세 — 그룹과 메시지, 메시지별 개별 단축키](./screenshots/ko/game-detail.png)
+
+![설정 — 8개 언어 지원, 국기 아이콘 포함](./screenshots/ko/settings.png)
 
 ## 🚀 설치
 

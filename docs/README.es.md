@@ -24,7 +24,11 @@ Creada con Tauri + Vue 3 — instalador pequeño, arranque rápido, rendimiento 
 
 ## 📸 Capturas
 
-> _Próximamente_
+![Lista de juegos](./screenshots/es/games.png)
+
+![Detalle del juego — grupos y mensajes con atajos individuales](./screenshots/es/game-detail.png)
+
+![Ajustes — 8 idiomas integrados con iconos de bandera](./screenshots/es/settings.png)
 
 ## 🚀 Instalación
 

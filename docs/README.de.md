@@ -24,7 +24,11 @@ Mit Tauri + Vue 3 gebaut — kleiner Installer, schneller Start, native Performa
 
 ## 📸 Screenshots
 
-> _Kommt bald_
+![Spieleliste](./screenshots/de/games.png)
+
+![Spiel-Details — Gruppen und Nachrichten mit individuellen Hotkeys pro Nachricht](./screenshots/de/game-detail.png)
+
+![Einstellungen — 8 integrierte Sprachen mit Flaggen-Icons](./screenshots/de/settings.png)
 
 ## 🚀 Installation
 

@@ -24,7 +24,11 @@
 
 ## 📸 截图
 
-> _待补充_
+![游戏列表](./screenshots/zh-CN/games.png)
+
+![游戏详情 — 分组和消息，每条可绑定独立热键](./screenshots/zh-CN/game-detail.png)
+
+![设置 — 内置 8 种语言，带国旗图标](./screenshots/zh-CN/settings.png)
 
 ## 🚀 安装
 
