@@ -30,23 +30,25 @@ const emit = defineEmits<{
 const recording = ref(false);
 const conflict = ref<string | null>(null);
 
-function getAllUsedHotkeys(): Array<{ hotkey: string; label: string; gameId: string; msgId?: string }> {
-  const used: Array<{ hotkey: string; label: string; gameId: string; msgId?: string }> = [];
-  for (const game of store.games) {
-    if (game.triggerMode === "single" && game.singleHotkey) {
-      used.push({ hotkey: game.singleHotkey, label: game.name, gameId: game.id });
-    }
-    if (game.triggerMode === "multi") {
-      for (const group of game.groups) {
-        for (const msg of group.messages) {
-          if (msg.hotkey) {
-            used.push({
-              hotkey: msg.hotkey,
-              label: `${game.name} > ${group.name} > "${msg.content}"`,
-              gameId: game.id,
-              msgId: msg.id,
-            });
-          }
+/** Collect used hotkeys *within the current game only* — different games are
+ *  mutually exclusive at the OS level (switching games re-registers), so the
+ *  same hotkey reused across games is NOT a real conflict. */
+function getUsedHotkeysInCurrentGame(): Array<{ hotkey: string; label: string; msgId?: string }> {
+  const used: Array<{ hotkey: string; label: string; msgId?: string }> = [];
+  const game = store.games.find((g) => g.id === props.gameId);
+  if (!game) return used;
+  if (game.triggerMode === "single" && game.singleHotkey) {
+    used.push({ hotkey: game.singleHotkey, label: game.name });
+  }
+  if (game.triggerMode === "multi") {
+    for (const group of game.groups) {
+      for (const msg of group.messages) {
+        if (msg.hotkey) {
+          used.push({
+            hotkey: msg.hotkey,
+            label: `${group.name} > "${msg.content}"`,
+            msgId: msg.id,
+          });
         }
       }
     }
@@ -55,9 +57,9 @@ function getAllUsedHotkeys(): Array<{ hotkey: string; label: string; gameId: str
 }
 
 function checkConflict(hotkey: string): string | null {
-  const used = getAllUsedHotkeys();
+  const used = getUsedHotkeysInCurrentGame();
   const existing = used.find(
-    (u) => u.hotkey === hotkey && !(u.gameId === props.gameId && u.msgId === props.msgId)
+    (u) => u.hotkey === hotkey && u.msgId !== props.msgId
   );
   return existing ? existing.label : null;
 }

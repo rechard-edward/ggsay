@@ -37,6 +37,9 @@ desktop.ini
 CLAUDE.md
 CLAUDE.local.md
 
+# Work-in-progress screenshot drafts (final ones go under docs/screenshots/)
+pic/
+
 # Tauri bundle artifacts (belt-and-suspenders — also covered by target/)
 src-tauri/target/
 src-tauri/gen/schemas/
