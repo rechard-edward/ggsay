@@ -72,13 +72,25 @@ async function startRecording() {
   recording.value = true;
   conflict.value = null;
   window.addEventListener("keydown", onKeyDown);
+  window.addEventListener("mousedown", onMouseDownWhileRecording, true);
 }
 
 async function finishRecording() {
   window.removeEventListener("keydown", onKeyDown);
+  window.removeEventListener("mousedown", onMouseDownWhileRecording, true);
   recording.value = false;
   if (wasListening) await store.resumeListening();
   wasListening = false;
+}
+
+function onMouseDownWhileRecording(e: MouseEvent) {
+  // Only react to mouse side buttons (XButton1/2); let normal left-click close
+  // the recorder naturally by focus loss or retry button.
+  if (e.button < 2) return;
+  e.preventDefault();
+  e.stopPropagation();
+  conflict.value = t("hotkey.mouseNotSupported");
+  finishRecording();
 }
 
 async function onKeyDown(e: KeyboardEvent) {

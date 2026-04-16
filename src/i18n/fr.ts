@@ -62,6 +62,7 @@ export default {
     conflict: "Conflit : déjà utilisée par « {label} »",
     systemConflict: "Ce raccourci est déjà utilisé par une autre app ou le système",
     blockedKey: "Cette touche ne peut pas être utilisée seule (Entrée / Échap / Tab / Retour arrière bloqueraient les dialogues système)",
+    mouseNotSupported: "Les boutons de souris ne sont pas encore pris en charge — utilisez le clavier",
     invalidActionKey: "Seules Entrée / Tab / Espace / Échap sont autorisées ici",
     retry: "Réessayer",
   },

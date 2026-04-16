@@ -62,6 +62,7 @@ export default {
     conflict: 'Konflikt: bereits von „{label}” verwendet',
     systemConflict: 'Dieser Hotkey wird bereits von einer anderen App oder dem System verwendet',
     blockedKey: 'Diese Taste kann nicht alleine verwendet werden (Enter / Escape / Tab / Backspace würden Systemdialoge blockieren)',
+    mouseNotSupported: 'Maus-Tasten werden noch nicht unterstützt — bitte Tastatur verwenden',
     invalidActionKey: 'Hier ist nur Enter / Tab / Space / Escape erlaubt',
     retry: 'Erneut versuchen',
   },

@@ -62,6 +62,7 @@ export default {
     conflict: "競合：「{label}」で使用中",
     systemConflict: "このキーは他のアプリまたはシステムで使用中です",
     blockedKey: "このキーは単独で使用できません (Enter / Escape / Tab / Backspace は OS 操作を妨げます)",
+    mouseNotSupported: "マウスボタンはまだサポートされていません — キーボードをご使用ください",
     invalidActionKey: "ここでは Enter / Tab / Space / Escape のみ使用可能です",
     retry: "再設定",
   },

@@ -97,6 +97,7 @@ export default {
     conflict: "热键冲突：已被「{label}」使用",
     systemConflict: "此热键已被其他程序或系统占用，请换一个",
     blockedKey: "此按键不能单独作为热键 (Enter / Escape / Tab / Backspace 会干扰系统操作)",
+    mouseNotSupported: "暂不支持鼠标按键，请使用键盘",
     invalidActionKey: "此处仅支持 Enter / Tab / Space / Escape 单键",
     retry: "重新设置",
   },

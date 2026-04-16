@@ -7,7 +7,17 @@ import { listen, type UnlistenFn } from "@tauri-apps/api/event";
 const store = useGamesStore();
 let unlisten: UnlistenFn | null = null;
 
+function blockBrowserMouseNav(e: MouseEvent) {
+  // Mouse side buttons (XButton1=3 Back, XButton2=4 Forward) otherwise
+  // trigger WebView's built-in history navigation, which pops Vue Router.
+  if (e.button === 3 || e.button === 4) e.preventDefault();
+}
+
 onMounted(async () => {
+  window.addEventListener("mousedown", blockBrowserMouseNav);
+  window.addEventListener("mouseup", blockBrowserMouseNav);
+  window.addEventListener("auxclick", blockBrowserMouseNav);
+
   try {
     unlisten = await listen<{ hotkey: string; pressed: boolean }>("hotkey-pressed", (e) => {
       store.handleHotkey(e.payload.hotkey, e.payload.pressed);
@@ -18,6 +28,9 @@ onMounted(async () => {
 });
 
 onUnmounted(() => {
+  window.removeEventListener("mousedown", blockBrowserMouseNav);
+  window.removeEventListener("mouseup", blockBrowserMouseNav);
+  window.removeEventListener("auxclick", blockBrowserMouseNav);
   if (unlisten) unlisten();
   store.stopListening();
 });
